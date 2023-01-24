@@ -13,6 +13,7 @@
   "devDependencies": {
     "@remotion/eslint-config": "^3.0.0",
     "@types/react": "^18.0.26",
+    "@types/styled-components": "^5.1.26",
     "@types/web": "^0.0.86",
     "eslint": "^8.30.0",
     "prettier": "^2.8.1",
@@ -22,7 +23,8 @@
     "@remotion/cli": "3.3.36",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
-    "remotion": "3.3.36"
+    "remotion": "3.3.36",
+    "styled-components": "^5.3.6"
   },
   "packageManager": "yarn@1.22.19"
 }
