@@ -1,9 +1,39 @@
 import styled from 'styled-components'
-import { AbsoluteFill } from 'remotion';
+import { AbsoluteFill, spring, useCurrentFrame, useVideoConfig } from 'remotion';
 
 import { staticFile, Video } from "remotion";
 
 export const HelloWorld = () => {
+	const currentFrame = useCurrentFrame()
+	const { fps } = useVideoConfig()
+
+	const textOpacity = (currentFrame - (0.5 * fps)) / (0.5 * fps)
+
+	const textTranslateY = spring({
+		frame: currentFrame - (0.5 * fps),
+		fps,
+		from: -30,
+		to: 0,
+		config: {
+			mass: 0.4
+		}
+	})
+	const textTransform = `translateY(${textTranslateY}px)`
+
+	const captionOpacity = (currentFrame - (1 * fps)) / (0.5 * fps)
+
+	const captionTranslateY = spring({
+		frame: currentFrame - (1 * fps),
+		fps,
+		from: -30,
+		to: 0,
+		config: {
+			mass: 0.4
+		}
+	})
+	const captionTransform = `translateY(${captionTranslateY}px)`
+
+
 	return (
 		<AbsoluteFill style={{
 			backgroundColor: 'white',
@@ -15,9 +45,9 @@ export const HelloWorld = () => {
 				<VideoBox>
 					<ContentVideo src={staticFile("IMG_4828.mov")} />
 				</VideoBox>
-				<Text>Somi video now broadcast various and reliable reviews</Text>
+				<Text style={{ opacity: textOpacity, transform: textTransform }}>Somi video now broadcast various and reliable reviews</Text>
 			</Container>
-			<Caption>Made by SEI</Caption>
+			<Caption style={{ opacity: captionOpacity, transform: captionTransform }} >Made by SEI</Caption>
 		</AbsoluteFill>
 	);
 };

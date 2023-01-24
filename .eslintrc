@@ -1,6 +1,7 @@
 {
 	"extends": "@remotion",
 	"rules": {
-		"capitalized-comments": "off"
+		"capitalized-comments": "off",
+		"no-implicit-coercion": "off"
 	}
 }
