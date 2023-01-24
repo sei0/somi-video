@@ -9,6 +9,7 @@ import {
 import {Logo} from './HelloWorld/Logo';
 import {Subtitle} from './HelloWorld/Subtitle';
 import {Title} from './HelloWorld/Title';
+import { Solid } from './HelloWorld/solid';
 
 export const HelloWorld: React.FC<{
 	titleText: string;
@@ -49,7 +50,7 @@ export const HelloWorld: React.FC<{
 		<AbsoluteFill style={{backgroundColor: 'white'}}>
 			<AbsoluteFill style={{opacity}}>
 				<AbsoluteFill style={{transform: `translateY(${logoTranslation}px)`}}>
-					<Logo />
+					<Solid />
 				</AbsoluteFill>
 				{/* Sequences can shift the time for its children! */}
 				<Sequence from={35}>
