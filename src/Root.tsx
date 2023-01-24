@@ -1,6 +1,5 @@
-import {Composition} from 'remotion';
-import {HelloWorld} from './HelloWorld';
-import {Solid} from './HelloWorld/solid';
+import { Composition } from 'remotion';
+import { HelloWorld } from './HelloWorld';
 
 // Each <Composition> is an entry in the sidebar!
 

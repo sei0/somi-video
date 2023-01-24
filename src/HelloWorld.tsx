@@ -1,4 +1,4 @@
-import {spring} from 'remotion';
+import { spring } from 'remotion';
 import {
 	AbsoluteFill,
 	interpolate,
@@ -6,20 +6,19 @@ import {
 	useCurrentFrame,
 	useVideoConfig,
 } from 'remotion';
-import {Logo} from './HelloWorld/Logo';
-import {Subtitle} from './HelloWorld/Subtitle';
-import {Title} from './HelloWorld/Title';
+import { Subtitle } from './HelloWorld/Subtitle';
+import { Title } from './HelloWorld/Title';
 import { Solid } from './HelloWorld/solid';
 
 export const HelloWorld: React.FC<{
 	titleText: string;
 	titleColor: string;
-}> = ({titleText, titleColor}) => {
+}> = ({ titleText, titleColor }) => {
 	const frame = useCurrentFrame();
-	const {durationInFrames, fps} = useVideoConfig();
+	const { durationInFrames, fps } = useVideoConfig();
 
 	// Animate from 0 to 1 after 25 frames
-	const logoTranslationProgress = spring({
+	const solidTranslationProgress = spring({
 		frame: frame - 25,
 		fps,
 		config: {
@@ -28,8 +27,8 @@ export const HelloWorld: React.FC<{
 	});
 
 	// Move the logo up by 150 pixels once the transition starts
-	const logoTranslation = interpolate(
-		logoTranslationProgress,
+	const solidTranslation = interpolate(
+		solidTranslationProgress,
 		[0, 1],
 		[0, -150]
 	);
@@ -47,9 +46,9 @@ export const HelloWorld: React.FC<{
 
 	// A <AbsoluteFill> is just a absolutely positioned <div>!
 	return (
-		<AbsoluteFill style={{backgroundColor: 'white'}}>
-			<AbsoluteFill style={{opacity}}>
-				<AbsoluteFill style={{transform: `translateY(${logoTranslation}px)`}}>
+		<AbsoluteFill style={{ backgroundColor: 'white' }}>
+			<AbsoluteFill style={{ opacity }}>
+				<AbsoluteFill style={{ transform: `translateY(${solidTranslation}px)` }}>
 					<Solid />
 				</AbsoluteFill>
 				{/* Sequences can shift the time for its children! */}
