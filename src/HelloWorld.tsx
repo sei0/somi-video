@@ -1,3 +1,4 @@
+import styled from 'styled-components'
 import { AbsoluteFill } from 'remotion';
 
 export const HelloWorld = () => {
@@ -8,23 +9,25 @@ export const HelloWorld = () => {
 			justifyContent: 'flex-end',
 			alignItems: 'flex-end',
 		}}>
-			<div style={{
-				display: 'flex',
-				flexDirection: 'column',
-				alignItems: 'center',
-			}}>
-				<div style={{
-					width: 400,
-					height: 400,
-					backgroundColor: '#2B28B8',
-				}} />
-				<h1 style={{
-					textAlign: 'center',
-					borderStyle: 'solid',
-				}}>
-					전수열
-				</h1>
-			</div>
+			<Container>
+				<Image />
+				<Text>전수열바보</Text>
+			</Container>
 		</AbsoluteFill>
 	);
 };
+
+const Container = styled.div`
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+`
+const Image = styled.div`
+	width: 400px;
+	height: 400px;
+	background-color: #2B28B8;
+`
+const Text = styled.h1`
+	text-align: center;
+	border-style: solid;
+`
