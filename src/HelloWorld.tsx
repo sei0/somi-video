@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 import { AbsoluteFill } from 'remotion';
 
+import { staticFile, Video } from "remotion";
+
 export const HelloWorld = () => {
 	return (
 		<AbsoluteFill style={{
@@ -10,7 +12,9 @@ export const HelloWorld = () => {
 			alignItems: 'center',
 		}}>
 			<Container>
-				<Image />
+				<VideoBox>
+					<ContentVideo src={staticFile("IMG_4828.mov")} />
+				</VideoBox>
 				<Text>Somi video now broadcast various and reliable reviews</Text>
 			</Container>
 			<Caption>Made by SEI</Caption>
@@ -29,11 +33,17 @@ const Container = styled.div`
 	align-self: stretch;
 	flex-grow: 1;
 `
-const Image = styled.div`
+const VideoBox = styled.div`
 	width: 100%;
 	aspect-ratio: 1;
-	background-color: #FF8743;
+	overflow: hidden;
 `
+const ContentVideo = styled(Video)`
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+`
+
 const Text = styled.h1`
 	display: flex;
 	text-align: center;
