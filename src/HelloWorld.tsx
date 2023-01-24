@@ -15,23 +15,23 @@ export const HelloWorld: React.FC<{
 	titleColor: string;
 }> = ({ titleText, titleColor }) => {
 	const frame = useCurrentFrame();
-	const { durationInFrames, fps } = useVideoConfig();
+	const { durationInFrames } = useVideoConfig();
 
-	// Animate from 0 to 1 after 25 frames
-	const solidTranslationProgress = spring({
-		frame: frame - 25,
-		fps,
-		config: {
-			damping: 100,
-		},
-	});
+	// // Animate from 0 to 1 after 25 frames
+	// const solidTranslationProgress = spring({
+	// 	frame: frame - 25,
+	// 	fps,
+	// 	config: {
+	// 		damping: 100,
+	// 	},
+	// });
 
-	// Move the logo up by 150 pixels once the transition starts
-	const solidTranslation = interpolate(
-		solidTranslationProgress,
-		[0, 1],
-		[0, -150]
-	);
+	// // Move the logo up by 150 pixels once the transition starts
+	// const solidTranslation = interpolate(
+	// 	solidTranslationProgress,
+	// 	[0, 1],
+	// 	[0, -150]
+	// );
 
 	// Fade out the animation at the end
 	const opacity = interpolate(
@@ -46,11 +46,11 @@ export const HelloWorld: React.FC<{
 
 	// A <AbsoluteFill> is just a absolutely positioned <div>!
 	return (
-		<AbsoluteFill style={{ backgroundColor: 'white' }}>
+		<AbsoluteFill style={{ backgroundColor: 'white', }}>
 			<AbsoluteFill style={{ opacity }}>
-				<AbsoluteFill style={{ transform: `translateY(${solidTranslation}px)` }}>
-					<Solid />
-				</AbsoluteFill>
+				{/* <AbsoluteFill style={{ transform: `translateY(${solidTranslation}px)` }}> */}
+				<Solid />
+				{/* </AbsoluteFill> */}
 				{/* Sequences can shift the time for its children! */}
 				<Sequence from={35}>
 					<Title titleText={titleText} titleColor={titleColor} />

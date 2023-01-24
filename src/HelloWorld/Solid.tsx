@@ -6,7 +6,7 @@ export const Solid: React.FC = () => {
 			<div style={{
 				width: '300px',
 				height: '150px',
-				backgroundColor: 'blue'
+				backgroundColor: '#F2C94C'
 			}} />
 		</AbsoluteFill>
 	);
