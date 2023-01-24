@@ -1,6 +1,8 @@
 import { Composition } from 'remotion';
 import { HelloWorld } from './HelloWorld';
 
+import './styles/global.css'
+
 // Each <Composition> is an entry in the sidebar!
 
 export const RemotionRoot: React.FC = () => {
