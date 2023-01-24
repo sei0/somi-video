@@ -20,12 +20,12 @@ export const HelloWorld = () => {
 	})
 	const textTransform = `translateY(${textTranslateY}px)`
 
-	const captionOpacity = (currentFrame - (1 * fps)) / (0.5 * fps)
+	const captionOpacity = (currentFrame - (1.5 * fps)) / (0.5 * fps)
 
 	const captionTranslateY = spring({
-		frame: currentFrame - (1 * fps),
+		frame: currentFrame - (1.5 * fps),
 		fps,
-		from: -30,
+		from: -10,
 		to: 0,
 		config: {
 			mass: 0.4
